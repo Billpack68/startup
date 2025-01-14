@@ -6,20 +6,17 @@ This project is going to be a website where users can share links to silly websi
 
 ## 🚀 Specification Deliverable
 
-> [!NOTE]
->  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
-
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [x] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-My website will be a link sharing website where users can share links to their favorite websites, and then can vote on the ones they think are the most funny and interesting. Users will be able to create accounts so they can log in and see the links they have submitted and how many votes they are receiving. Users will be able to browse the submitted links organized by all time most funny and all time most interesting, as well as most votes in each category received in the last month, and the most recently added links.
+There are a lot of silly and interesting websites on the web, and sometimes it can be hard to find the one you saw a few years ago, or maybe you've got a few minutes to fill before catching the bus and you want something quick to entertain you. My website will be a link sharing website where users can share links to their favorite silly and interesting websites, and then can vote on the ones submitted by everyone else that they think are the most funny and interesting. 
 
 ### Design
 
@@ -36,9 +33,15 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login over HTTPS 
+Users will be able to browse the submitted links organized by all time most funny and all time most interesting, as well as most votes in each category received in the last month, and the most recently added links.
+- Ability to submit new links to the database
+- Ability to see links you have previously submitted
+- Ability to browse links by all time votes from users, as well as ones that have gotten lots of votes in the last few days or weeks
+- Ability to vote for links that users find funny or interesting
+- Ability to see links you have voted for in the past
+- Votes and links are stored in a database allowing for them to remain over time and continue to gain votes
+- Ability for administrators to remove links from the database that are inappropriate or offensive
 
 ### Technologies
 
