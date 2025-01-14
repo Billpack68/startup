@@ -11,7 +11,7 @@ This project is going to be a website where users can share links to silly websi
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
+- [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
@@ -19,7 +19,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-My website will be a link sharing website where users can share links to their favorite websites, and then can vote on the ones they think are the most funny. Users will be able to create accounts so they can log in and see the links they have submitted and how many votes they are receiving.
+My website will be a link sharing website where users can share links to their favorite websites, and then can vote on the ones they think are the most funny and interesting. Users will be able to create accounts so they can log in and see the links they have submitted and how many votes they are receiving. Users will be able to browse the submitted links organized by all time most funny and all time most interesting, as well as most votes in each category received in the last month, and the most recently added links.
 
 ### Design
 
