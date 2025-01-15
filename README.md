@@ -28,11 +28,10 @@ Here is a sequence diagram that shows how users will interact with the backend t
 sequenceDiagram
     actor You
     actor Joshua
-    actor Website
-    You->>Website: Adds a link
-    Website-->>Joshua: Adds a link to the list
-    Joshua->>Website: Votes for the link
-    Website-->>You: Adds a vote to that link
+    You->>Server: Add a link
+    Server-->>Joshua: Add a link to the list
+    Joshua->>Server: Vote for the link
+    Server-->>You: Add a vote to that link
 ```
 
 ### Key features
