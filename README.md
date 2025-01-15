@@ -30,9 +30,9 @@ sequenceDiagram
     actor Joshua
     actor Website
     You->>Website: Adds a link
-    Website-->Joshua: Adds a link
+    Website-->>Joshua: Adds a link to the list
     Joshua->>Website: Votes for the link
-    Website-->You: Adds a vote to that link
+    Website-->>You: Adds a vote to that link
 ```
 
 ### Key features
