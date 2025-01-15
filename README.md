@@ -26,12 +26,15 @@ Here is a sequence diagram that shows how users will interact with the backend t
 
 ```mermaid
 sequenceDiagram
-    actor You
+    actor Andrew
     actor Joshua
-    You->>Server: Add a link
+    actor Sarah
+    Andrew->>Server: Add a link
     Server-->>Joshua: Add a link to the list
+    Server-->>Sarah: Add a link to the list
     Joshua->>Server: Vote for the link
-    Server-->>You: Add a vote to that link
+    Server-->>Sarah: Add a vote to that link
+    Server-->>Andrew: Add a vote to that link
 ```
 
 ### Key features
