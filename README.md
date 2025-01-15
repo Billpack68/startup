@@ -34,7 +34,6 @@ sequenceDiagram
 ### Key features
 
 - Secure login over HTTPS 
-Users will be able to browse the submitted links organized by all time most funny and all time most interesting, as well as most votes in each category received in the last month, and the most recently added links.
 - Ability to submit new links to the database
 - Ability to see links you have previously submitted
 - Ability to browse links by all time votes from users, as well as ones that have gotten lots of votes in the last few days or weeks
