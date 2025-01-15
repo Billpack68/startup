@@ -60,6 +60,7 @@ I am going to use the required technologies in the following ways.
     - retrieving links
     - voting on links
     - retrieving vote status
+    - linkpreview api to generate previews of links
 - **DB/Login** - Store users, the links they have submitted, the links they have liked, as well as how many likes each link has. Users cannot vote unless signed in to an account, and account credentials are store securely in the database.
 - **WebSocket** - As users add links and vote on them, the results are broadcast to other users on the site.
 
