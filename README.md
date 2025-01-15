@@ -11,8 +11,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] Proper use of Markdown
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -27,8 +27,12 @@ Here is a sequence diagram that shows how users will interact with the backend t
 ```mermaid
 sequenceDiagram
     actor You
+    actor Joshua
     actor Website
-    You->>Website: Replace this with your design
+    You->>Website: Adds a link
+    Website-->Joshua: Adds a link
+    Joshua->>Website: Votes for the link
+    Website-->You: Adds a vote to that link
 ```
 
 ### Key features
@@ -36,7 +40,7 @@ sequenceDiagram
 - Secure login over HTTPS 
 - Ability to submit new links to the database
 - Ability to see links you have previously submitted
-- Ability to browse links by all time votes from users, as well as ones that have gotten lots of votes in the last few days or weeks
+- Ability to browse links by total votes from users
 - Ability to vote for links that users find funny or interesting
 - Ability to see links you have voted for in the past
 - Votes and links are stored in a database allowing for them to remain over time and continue to gain votes
