@@ -22,7 +22,7 @@ There are a lot of silly and interesting websites on the web, and sometimes it c
 
 ![Design image](assets/website_picture.jpg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Here is a sequence diagram that shows how users will interact with the backend to add links and vote on them
 
 ```mermaid
 sequenceDiagram
@@ -46,12 +46,16 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Uses correct HTML structure for application. Two HTML pages. One for browsing the links and one for seeing your account information and history.
+- **CSS** - Styling that looks good on different screen sizes, is easy to navigate, and color choice that is modest and not distracting
+- **React** - Provides login, display of links, applying votes to links, displaying other user's votes, and for routing and components
+- **Service** - Backend service with endpoints for:
+    - login
+    - retrieving links
+    - voting on links
+    - retrieving vote status
+- **DB/Login** - Store users, the links they have submitted, the links they have liked, as well as how many likes each link has. Users cannot vote unless signed in to an account, and account credentials are store securely in the database.
+- **WebSocket** - As users add links and vote on them, the results are broadcast to other users on the site.
 
 ## 🚀 AWS deliverable
 
