@@ -26,6 +26,7 @@ My startup - need to add a link to it
 ## The Internet
 
 - All devices have an IP address, and a domain name is a more english way of communicating that information. You can look up any domain name to get the associated IP address.
+- Caddy is a program for ensuring encryption and security over the internet
 
 ## AWS Notes
 
