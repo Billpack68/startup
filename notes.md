@@ -26,13 +26,14 @@ My startup - need to add a link to it
 ## The Internet
 
 - All devices have an IP address, and a domain name is a more english way of communicating that information. You can look up any domain name to get the associated IP address.
-- Caddy is a program for ensuring encryption and security over the internet
+- Caddy is a program for ensuring encryption and security over the internet, allowing you to use HTTPS instead of HTTP
 
 ## AWS Notes
 
 - To SSH into my website, `& ssh -i ~/[location of my key pair file] ubuntu@[ip address]`
 - To exit the SSH use `exit`
 - IP address (elastic): 34.199.202.124
+- Domain: i-wanna-share-this.link
 - The IP address costs 3$ a month if the server instance is down
 - The server instance is free for the first 750 hours, but I may need to upgrade it soon
 - My plan for now is to use the free server instance and leave it running because I'll probably have to upgrade within the month to get a stronger computer
