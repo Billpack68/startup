@@ -51,3 +51,9 @@ My startup - need to add a link to it
 - Very minimal user interaction
 - Can be prettified with CSS and JS
 - Can display images, audio, videos, and make simple graphics using geometry
+
+## Deploy Files
+
+- When wanting to put code into effect, I'll use some sort of .sh deploy file.
+- The command to run in git bash is ./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s simon
+- RUN THE FILE WHILE YOU ARE IN THE DIRECTORY YOU WANT TO DEPLOY, it will upload everything in whatever directory you are in haha
