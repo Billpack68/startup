@@ -47,4 +47,7 @@ My startup - need to add a link to it
 
 ## HTML Notes
 
-I hear a lot of programmers make fun of HTML. I'm excited to see if I love it or hate it.
+- HTML is used to give a very functional outline for websites
+- Very minimal user interaction
+- Can be prettified with CSS and JS
+- Can display images, audio, videos, and make simple graphics using geometry
