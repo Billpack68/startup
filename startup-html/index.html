@@ -6,8 +6,8 @@
     <title>Startup HTML</title>
   </head>
   <body>
-  <header>
-    <h1>I Wanna Share This Link</h1>
+    <header>
+      <h1>I Wanna Share This Link</h1>
       <nav>
         <menu>
           <li><a href="index.html">Home</a></li>
@@ -16,41 +16,52 @@
       </nav>
       <hr />
     </header>
+
+    <main>
+      <!-- This table will pull from the database and use websocket to update live -->
+      <table>
+        <tr>
+          <th>Place</th>
+          <th>Link</th>
+          <th>Funny Votes</th>
+          <th>Interesting Votes</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td><a href="https://www.boredbutton.com">Bored Button</a></td>
+          <td>7593145609124705</td>
+          <td>3475982347</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td><a href="https://www.youtube.com/@DryBarComedy">Dry Bar Comedy</a></td>
+          <td>56123941293745</td>
+          <td>6091237409</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td><a href="https://www.tylervigen.com/spurious-correlations">Spurious Correlations</a></td>
+          <td>53120512</td>
+          <td>65012398750923174</td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <!-- I don't know what the link next to action does on the line below but it seems important -->
+      <form action="linkSubmit.html" method="post">
+        <ul>
+          <label for="text">Submit a link: </label>
+          <input type="text" id="text" name="varText" placeholder="Link" required pattern="[Aa].*" />
+          <input type="text" id="text" name="varText" placeholder="Display Name" required pattern="[Aa].*" />
+          <p>Submit (This will be a button)</p>
+        </ul>
+      </form>
+    </main>
+    
+    <footer>
+      <hr />
+      <span class="text-reset">Author: Bill</span>
+      <br />
+      <a href="https://github.com/Billpack68/startup">GitHub</a>
+    </footer>
   </body>
-
-  <main>
-    <!-- This table will pull from the database and use websocket to update live -->
-    <table>
-      <tr>
-        <th>Place</th>
-        <th>Link</th>
-        <th>Funny Votes</th>
-        <th>Interesting Votes</th>
-      </tr>
-      <tr>
-        <td>1.</td>
-        <td><a href="https://www.boredbutton.com">Bored Button</a></td>
-        <td>7593145609124705</td>
-        <td>3475982347</td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td><a href="https://www.youtube.com/@DryBarComedy">Dry Bar Comedy</a></td>
-        <td>56123941293745</td>
-        <td>6091237409</td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td><a href="https://www.tylervigen.com/spurious-correlations">Spurious Correlations</a></td>
-        <td>53120512</td>
-        <td>65012398750923174</td>
-      </tr>
-    </table>
-  </main>
-
-  <footer>
-    <hr />
-    <span class="text-reset">Author: Bill</span>
-    <br />
-    <a href="https://github.com/Billpack68/startup">GitHub</a>
-  </footer>
