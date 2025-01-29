@@ -18,9 +18,25 @@
     </header>
 
     <main>
+      <p>Login to your account:</p>
+      <form action="login.html" method="post">
+        <ul>
+          <label for="text">Username: </label>
+          <input type="text" id="text" name="varText" placeholder="username" required pattern="[Aa].*" />
+        </ul>
+      </form>
+
+      <form action="login.html" method="post">
+        <ul>
+          <label for="text">Password: </label>
+          <input type="text" id="text" name="varText" placeholder="password" required pattern="[Aa].*" />
+        </ul>
+      </form>
+      <hr />
+      <br />
+      
       <!-- This table will pull from the database and use websocket to update live -->
       <table>
-        <!-- Clicking on vote counts will allow users to add or remove their votes -->
         <tr>
           <th>Place</th>
           <th>Link</th>
@@ -31,20 +47,28 @@
         <tr>
           <td>1.</td>
           <td><a href="https://www.boredbutton.com">Bored Button</a></td>
-          <td>7593145609124705</td>
-          <td>3475982347</td>
+          <td>75931456091247</td>
+          <td>34759823</td>
         </tr>
         <tr>
           <td>2.</td>
           <td><a href="https://www.youtube.com/@DryBarComedy">Dry Bar Comedy</a></td>
-          <td>56123941293745</td>
-          <td>6091237409</td>
+          <td>561239412937</td>
+          <td>60912374</td>
         </tr>
         <tr>
           <td>3.</td>
           <td><a href="https://www.tylervigen.com/spurious-correlations">Spurious Correlations</a></td>
           <td>53120512</td>
-          <td>65012398750923174</td>
+          <td>650123987509231</td>
+        </tr>
+        <!-- This row represents the drop down menu that appears when you
+         click on a row for more details -->
+        <tr>
+          <td></td>
+          <td><img alt="Default image for suprious correlation website" src="https://tylervigen.com/images/spurious-correlation-share.png" style="width:330px;height:200px;" /></td>
+          <td>"Correlation is not causation"</td>
+          <td>Provided with linkview api</td>
         </tr>
       </table>
       <br />
@@ -54,10 +78,15 @@
         <ul>
           <label for="text">Submit a link: </label>
           <input type="text" id="text" name="varText" placeholder="Link" required pattern="[Aa].*" />
-          <input type="text" id="text" name="varText" placeholder="Display Name" required pattern="[Aa].*" />
-          <p>Submit (This will be a button)</p>
         </ul>
       </form>
+      <form action="linkSubmit.html" method="post">
+        <ul>
+          <label for="text">Display text: </label>
+          <input type="text" id="text" name="varText" placeholder="Display text" required pattern="[Aa].*" />
+        </ul>
+      </form>
+      <p>Submit (This will be a button)</p>
     </main>
     
     <footer>
