@@ -33,7 +33,7 @@ My startup - need to add a link to it
 - To SSH into my website, `& ssh -i ~/[location of my key pair file] ubuntu@[ip address]`
 - To exit the SSH use `exit`
 - IP address (elastic): 34.199.202.124
-- Domain: i-wanna-share-this.link
+- Domain: ratemydryer.com
 - The IP address costs 3$ a month if the server instance is down
 - The server instance is free for the first 750 hours, but I may need to upgrade it soon
 - My plan for now is to use the free server instance and leave it running because I'll probably have to upgrade within the month to get a stronger computer
