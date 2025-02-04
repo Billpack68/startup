@@ -22,23 +22,41 @@
 
     <main>
       <p>Currently loggeed in<br>User: Example User<br>Email: stevejobs@techbro.com</p>
-      <p>Submit a review:</p>
-      <form method="get" action="review.html">
+      <p>Find laundromats near you:</p>
+      
+      <form method="get" action="find.html">
         <div>
-          <span>Apartment Complex:</span>
-          <input type="text" placeholder="Heritage Halls" />
+          <span>Address:</span>
+          <input type="text" placeholder="8 Heritage Halls, Provo, UT, 84602" />
         </div>
-        <div>
-          <span>Building Number:</span>
-          <input type="number" placeholder="8" />
-        </div>
-        <div>
-          <span>Washer/Dryer Number:</span>
-          <input type="number" placeholder="11" />
-        </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Search</button>
       </form>
       <br />
+      <p>Results:</p>
+      <!-- Using Google Places API-->
+      <table>
+        <tr>
+          <th>Address</th>
+          <th>Name</th>
+          <th>Distance</th>
+          <th>Hours</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>1624 900 E, Provo, UT 84602</td>
+          <td>BYU Laundry</td>
+          <td>REALLY Close</td>
+          <td>7:30-5:30 Mon-Fri<br>10-1 Sat</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>440 900 E, Provo, UT 84606</td>
+          <td>Laundry On Ninth</td>
+          <td>Kinda close</td>
+          <td>24/7</td>
+          <td>$1.50 per Wash<br>$0.50 per Dry</td>
+        </tr>
+      </table>
     
     <footer>
       <hr />
