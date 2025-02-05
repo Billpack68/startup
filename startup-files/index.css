@@ -1,0 +1,11 @@
+button {
+    margin: 10px;
+}
+
+div[class="form-group"] {
+    max-width: 250px;
+}
+
+label {
+    padding: 5px;
+}
