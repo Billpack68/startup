@@ -36,3 +36,20 @@
 - background (color)
 - padding (size of padding) (can be -left, -top, -bottom, etc)
 - margin-bottom (size of margin, margin-top too?)
+
+## Display types
+
+- none (Don't display)
+- block (Width fills parent element)
+- inline (Width only as big as content)
+- flex (Flexible orientation? you specify a flex direction like row or column)
+- grid (Put the children in a grid)
+
+- Put this meta tag in the head of all HTML Docs to make it work better on mobile devices:
+- `<meta name="viewport" content="width=device-width,initial-scale=1" />`
+
+- Float lets something just kind of be on its own (on the right, left, etc.) and everything else wraps around it
+
+- @media selector detects size and orientation of the screen. It takes one or more predicates and does stuff with it
+
+- Flex adjusts parts within a section based on screen size
