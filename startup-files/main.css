@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     min-width: 400px;
     margin: 0;
+    height: 100vh;
 }
 
 header {
@@ -32,7 +33,25 @@ h1 {
     padding: 20px;
     color: rgb(75, 146, 212);
 }
+
+main {
+    margin: 20px;
+    flex: 1;
+}
   
 menu .nav-item {
     padding: 0 0.3em;
+}
+
+footer {
+    flex: 0 80px;
+    background: rgb(95, 166, 232);
+    text-align: right;
+    font-size: large;
+    padding: 10px;
+    color: rgb(0, 75, 150);
+}
+
+footer a {
+    font-size: medium;
 }
