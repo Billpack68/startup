@@ -4,7 +4,7 @@
 
 This project is going to be a website where users can share links to silly websites and vote on their favorite silly websites.
 
-## 🚀 Specification Deliverable
+## 🚀 Specification Deliverable -- OUTDATED, OLD SILLY IDEA HERE
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
@@ -68,7 +68,7 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Server deployed and accessible with custom domain name** - [My server link](https://i-wanna-share-this.link/).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://ratemydryer.com/).
 
 ## 🚀 HTML deliverable
 
@@ -88,12 +88,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - The header and footer is the same on each page, and the main body changes
+- [x] **Navigation elements** - I spent about 2 hours messing with this, turns out I had just not copied the code to import bootstrap correctly which is why it didn't look good. Should be decent now.
+- [x] **Responsive to window resizing** - The two tables (find.html and browse.html) are behaving funky when the screen gets too wide and that I cannot solve on this lack of sleep and looming deadline, however everything else seems to keep looking pretty when the page changes shape into weird shapes
+- [x] **Application elements** - There are spans and stuff, could be better probably
+- [x] **Application text content** - There is text on there for sure
+- [x] **Application images** - I put a little AI generated logo of a dryer with some stars on it. It isn't much but it made a lot of sense in my head.
 
 ## 🚀 React part 1: Routing deliverable
 
