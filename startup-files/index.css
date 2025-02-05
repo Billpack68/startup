@@ -9,3 +9,9 @@ div[class="form-group"] {
 label {
     padding: 5px;
 }
+
+main {
+    margin: auto;
+    text-align: center;
+    padding: auto;
+}

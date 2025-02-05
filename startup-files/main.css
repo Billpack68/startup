@@ -59,3 +59,11 @@ footer {
 footer a {
     font-size: medium;
 }
+
+.username {
+    color: rgb(0, 75, 150);
+}
+
+.email {
+    color: rgb(0, 75, 150);
+}
