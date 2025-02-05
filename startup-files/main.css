@@ -43,6 +43,10 @@ menu .nav-item {
     padding: 0 0.3em;
 }
 
+a[class="nav-link"] {
+    color: rgb(50,50,50,0.8)
+}
+
 footer {
     flex: 0 80px;
     background: rgb(95, 166, 232);
