@@ -1,0 +1,36 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    margin: 0;
+}
+
+header {
+    flex: 0 80px;
+    background: rgb(95, 166, 232);
+    padding: 0;
+    color: rgb(40, 78, 142);
+}
+
+menu {
+    display: flex;
+    flex-direction: row !important;
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar-brand {
+    padding-left: 0.3em;
+    list-style: none;
+}
+  
+menu .nav-item {
+    padding: 0 0.3em;
+}
