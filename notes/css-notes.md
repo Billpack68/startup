@@ -8,7 +8,7 @@
 - Preferred method to include link to css file in the head element of the html doc, see below for example:
 - `<link rel="stylesheet" href="styles.css" />`
 - Properties are applied from the top down, so if you have all paragraphs set to red but then specify one to be blue, it will be blue because the bottom instructions override the top
-
+i
 ## CSS selectors
 
 - using the `body` selector will affect the entire document
