@@ -53,3 +53,4 @@
 - @media selector detects size and orientation of the screen. It takes one or more predicates and does stuff with it
 
 - Flex adjusts parts within a section based on screen size
+- Setting the flex variable tells us how much of the space goes to which, ie if there's two sections (two columns) and one is flex: 1 and one is flex: 3 then the flex: 3 one gets 75% of the space
