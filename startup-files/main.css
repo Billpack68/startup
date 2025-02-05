@@ -1,5 +1,5 @@
 * {
-    font-family: sans-serif;
+    font-family: serif;
 }
 
 body {
@@ -18,17 +18,13 @@ header {
 
 menu {
     display: flex;
+    flex: 1;
     flex-direction: row !important;
     list-style: none;
 }
 
 h1 {
     text-align: center;
-}
-
-.navbar-brand {
-    padding-left: 0.3em;
-    list-style: none;
 }
   
 menu .nav-item {
