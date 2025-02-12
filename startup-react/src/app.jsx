@@ -12,7 +12,7 @@ import { Review } from './review/review';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="body bg-dark text-light">
+      <div className="body">
         <header className="container-fluid">
           <h1>Rate My Dryer (And Washer)</h1>
           <nav className="navbar">
