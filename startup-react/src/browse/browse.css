@@ -10,6 +10,10 @@ label {
     padding: 5px;
 }
 
+form {
+    padding: 20px;
+}
+
 table, th, td {
     border: 3px solid rgb(255, 175, 0);
     background: rgb(255, 200, 0);

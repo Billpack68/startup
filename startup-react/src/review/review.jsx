@@ -4,7 +4,7 @@ import './review.css';
 export function Review() {
   return (
     <main>
-      <p>Currently loggeed in as
+      <p>Currently logged in as
         <span className="username">Example User</span>
       </p>
       

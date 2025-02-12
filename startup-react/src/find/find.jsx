@@ -4,7 +4,7 @@ import './find.css';
 export function Find() {
   return (
     <main>
-      <p>Currently loggeed in as
+      <p>Currently logged in as
         <span className="username">Example User</span>
       </p>  
       <p>Find laundromats near you:</p>
