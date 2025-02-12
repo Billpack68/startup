@@ -2,7 +2,7 @@
     font-family: serif;
 }
 
-body {
+.body {
     display: flex;
     flex-direction: column;
     min-width: 400px;
