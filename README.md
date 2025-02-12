@@ -99,9 +99,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Bundled using Vite** - It is bundled
-- [x] **Components** - There are components
-- [x] **Router** - The routing is done
+- [x] **Bundled using Vite** - Used NPM and organized the files in the way that VITE expects
+- [x] **Components** - Different pages are different components
+- [x] **Router** - The index.jsx routes between pages
 
 ## 🚀 React part 2: Reactivity
 
