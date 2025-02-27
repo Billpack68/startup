@@ -46,3 +46,8 @@
 ## JSON
 
 - `JSON.parse` and `JSON.stringify` to convert between JSON and JS
+
+## localStorage
+
+- Put information into local storage that you can reference later (from a different page on the website,etc)
+- Can cache information for the next time the browser visits the website in case the server isn't working
