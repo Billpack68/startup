@@ -3,8 +3,11 @@
 ## Basics
 
 - `console.log("text")` to log stuff in the console
+- `console.log` can include CSS declarations
 - define functions `function name(input1, input2) {}`
 - Accepts line and block comments `//` and `/**/`
+- `console.time('time name')` to start a timer and `console.timeEnd('time name')` to end it
+- `console.count('counter name')` to count every time that line is run
 
 ## Referencing it in html
 
