@@ -27,3 +27,13 @@
 
 - Arrow functions can use {} `() => {}` but then they don't return anything unless you use return
 - Arrow functions can reference variables from when they're created, even if they're in another scope
+
+## Objects
+
+- Similar to objects in other programming languages
+- `const object = new Object({properties/functions/methods/etc.})`
+- `Object.entries('objName')` returns an array of entries, Object.keys returns keys, Object.values returns values
+- PRESSING THE SUBMIT BUTTON WILL CREATE A REVIEW OBJECT
+- Use `#` before the names of member variables and methods to make them private
+- `class Employee extends Person` extends pulls down all the information from the higher class
+- use `super.method()` to call methods from the parent class
