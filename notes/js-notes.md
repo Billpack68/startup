@@ -37,3 +37,8 @@
 - Use `#` before the names of member variables and methods to make them private
 - `class Employee extends Person` extends pulls down all the information from the higher class
 - use `super.method()` to call methods from the parent class
+
+## Time Delays
+
+- `setTimeout(Lambda function, time)` does the lambda function after the time amount (but other stuff keeps going on in the meantime)
+- `setInterval(lambda function, time)` does the lambda function ever so often (the time amount you specify)
