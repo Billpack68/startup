@@ -42,3 +42,7 @@
 
 - `setTimeout(Lambda function, time)` does the lambda function after the time amount (but other stuff keeps going on in the meantime)
 - `setInterval(lambda function, time)` does the lambda function ever so often (the time amount you specify)
+
+## JSON
+
+- `JSON.parse` and `JSON.stringify` to convert between JSON and JS
