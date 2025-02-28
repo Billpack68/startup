@@ -17,7 +17,6 @@ export default function App() {
           <h1>Rate My Dryer (And Washer)</h1>
           <nav className="navbar">
             <menu className="navbar-nav">
-              <img src="RateMyDryerLogo.png" width="50px" height="50px" />
               <li className="nav-item">
                 <NavLink className="nav-link" to="">Login</NavLink>
               </li>
@@ -50,6 +49,8 @@ export default function App() {
           <span>Author: Bill Killpack</span>
           <br />
           <a href="https://github.com/Billpack68/startup">GitHub</a>
+          <br />
+          <img src="RateMyDryerLogo.png" width="50px" height="50px" />
         </footer>
       </div>;
     </BrowserRouter>
