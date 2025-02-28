@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { Login } from './login/login';
 import { About } from './about/about';
 import { Browse } from './browse/browse';
@@ -31,7 +31,7 @@ export default function App() {
                 {user && <NavLink className="nav-link" to='find'>Laundromats near me</NavLink> }
               </li>
               <li className="nav-item">
-                {user && <NavLink className="nav-link" to='about'>About</NavLink> }
+                <NavLink className="nav-link" to='about'>About</NavLink>
               </li>
             </menu>
           </nav>

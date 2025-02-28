@@ -1,12 +1,16 @@
 import React from 'react';
 import './login.css';
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const isFormValid = username.trim() !== "" && password.trim() !== "";
+  const navigate = useNavigate();
   function loginUser() {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
+    navigate('/browse')
   }
 
   function usernameChange(e) {
@@ -29,7 +33,7 @@ export function Login() {
           <label htmlFor="passwordInput">Password</label>
           <input type="password" onChange={passwordChange} className="form-control" id="passwordInput" placeholder="Password" />
         </div>
-        <button type="submit" className="btn btn-primary" onClick={loginUser}>Login</button>
+        <button type="submit" className="btn btn-primary" disabled={!isFormValid} onClick={loginUser}>Login</button>
       </form>
       <br />
     </main>
