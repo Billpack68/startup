@@ -2,6 +2,13 @@ import React from 'react';
 import './find.css';
 
 export function Find({user}) {
+  const [address, setAddress] = React.useState('');
+  const isFormValid = address.trim() !== "";
+  
+  function addressChange(e) {
+    setAddress(e.target.value);
+  }
+
   return (
     <main>
       <p>Currently logged in as {user}</p>
@@ -10,9 +17,9 @@ export function Find({user}) {
       <form>
         <div className="form-group">
           <label htmlFor="address">Address:</label>
-          <input type="text" className="form-control" id="address" placeholder="8 Heritage Halls, Provo UT, 84602" />
+          <input type="text" onChange={addressChange} className="form-control" id="address" placeholder="8 Heritage Halls, Provo UT, 84602" />
         </div>
-        <button type="submit" className="btn btn-primary">Search</button>
+        <button type="submit" disabled={!isFormValid} className="btn btn-primary">Search</button>
       </form>
       <br />
       <p>Results:</p>
@@ -27,6 +34,13 @@ export function Find({user}) {
           </tr>
         </thead>
         <tbody>
+        <tr>
+            <td>"Dummy data" (real places)</td>
+            <td>This will use an API</td>
+            <td>to find</td>
+            <td>REAL LAUNDROMATS (NOT CLICKBAIT)</td>
+            <td>near<br />YOU</td>
+          </tr>
           <tr>
             <td>1624 900 E, Provo, UT 84602</td>
             <td>BYU Laundry</td>
