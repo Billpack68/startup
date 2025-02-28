@@ -10,6 +10,7 @@ import { Find } from './find/find';
 import { Review } from './review/review';
 
 export default function App() {
+  const [user, setUser] = React.useState(localStorage.getItem('username') || null);
   return (
     <BrowserRouter>
       <div className="body">
