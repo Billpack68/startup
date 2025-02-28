@@ -107,8 +107,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - Everything mocked, except the page where you call an API doesn't actually do anything yet BUT the form to submit info that will be passed to the API works so I think that's the important part for this deliverable? Feel free to correct me.
+- [x] **Hooks** - I used useState a lot, I did not use useEffect, I'm not 100% sure I understand what it does BUT from what I do know I don't think I need it for my project? Again, feel free to correct me.
 
 ## 🚀 Service deliverable
 
