@@ -2,6 +2,29 @@ import React from 'react';
 import './browse.css';
 
 export function Browse({user}) {
+  const [apartment, setApartment] = React.useState('');
+  const [building, setBuilding] = React.useState('');
+  const [number, setNumber] = React.useState('');
+  const isFormValid = apartment.trim() !== "" && building.trim() !== "" && number.trim() !== "";
+
+  function apartmentChange(e) {
+    setApartment(e.target.value);
+  }
+
+  function buildingChange(e) {
+    setBuilding(e.target.value);
+  }
+
+  function numberChange(e) {
+    setNumber(e.target.value);
+  }
+
+  function findReviews() {
+    console.log(apartment);
+    console.log(building);
+    console.log(number);
+  }
+
   return (
     <main>
       <p>Currently logged in as {user}</p>
@@ -10,17 +33,17 @@ export function Browse({user}) {
       <form>
         <div className="form-group">
           <label htmlFor="apartmentComplex">Apartment complex</label>
-          <input type="text" className="form-control" id="apartmentComplex" placeholder="Heritage Halls" />
+          <input type="text" onChange={apartmentChange} className="form-control" id="apartmentComplex" placeholder="Heritage Halls" />
         </div>
         <div className="form-group">
           <label htmlFor="buildingNumber">Building Number</label>
-          <input type="number" className="form-control" id="buildingNumber" placeholder="8" />
+          <input type="number" onChange={buildingChange} className="form-control" id="buildingNumber" placeholder="8" />
         </div>
         <div className="form-group">
           <label htmlFor="unitNumber">Washer/Dryer Number</label>
-          <input type="number" className="form-control" id="unitNumber" placeholder="11" />
+          <input type="number" onChange={numberChange} className="form-control" id="unitNumber" placeholder="11" />
         </div>
-        <button type="submit" className="btn btn-primary">Search</button>
+        <button type="submit" onClick={findReviews} className="btn btn-primary" disabled={!isFormValid}>Search</button>
       </form>
 
       <table>

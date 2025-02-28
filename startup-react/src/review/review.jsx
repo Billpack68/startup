@@ -2,6 +2,20 @@ import React from 'react';
 import './review.css';
 
 export function Review({ user }) {
+  
+  class Review {
+    constructor(apartment, building, number, date, user, rating, review) {
+      this.apartment = apartment;
+      this.building = building;
+      this.number = number;
+      this.date = date;
+      this.user = user;
+      this.rating = rating;
+      this.review = review;
+    }
+  }
+  
+  
   return (
     <main>
       <p>Currently logged in as {user}</p>
