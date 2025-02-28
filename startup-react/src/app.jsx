@@ -10,7 +10,7 @@ import { Find } from './find/find';
 import { Review } from './review/review';
 
 export default function App() {
-  const [user, setUser] = React.useState(localStorage.getItem('username') || null);
+  const [user, setUser] = React.useState(localStorage.getItem("username") || null);
   return (
     <BrowserRouter>
       <div className="body">
@@ -22,16 +22,16 @@ export default function App() {
                 <NavLink className="nav-link" to="">Login</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to='browse'>Browse</NavLink>
+                {user && <NavLink className="nav-link" to='browse'>Browse</NavLink> }
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to='review'>Review</NavLink>
+                {user && <NavLink className="nav-link" to='review'>Review</NavLink> }
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to='find'>Laundromats near me</NavLink>
+                {user && <NavLink className="nav-link" to='find'>Laundromats near me</NavLink> }
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to='about'>About</NavLink>
+                {user && <NavLink className="nav-link" to='about'>About</NavLink> }
               </li>
             </menu>
           </nav>
@@ -40,9 +40,9 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Login />} exact />
           <Route path='/about' element={<About />} />
-          <Route path='/browse' element={<Browse />} />
-          <Route path='/find' element={<Find />} />
-          <Route path='/review' element={<Review />} />
+          <Route path='/browse' element={<Browse user={user}/>} />
+          <Route path='/find' element={<Find user={user}/>} />
+          <Route path='/review' element={<Review user={user}/>} />
           <Route path='*' element={<NotFound />} />
         </Routes>
                 
