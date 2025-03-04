@@ -51,3 +51,7 @@
 
 - Put information into local storage that you can reference later (from a different page on the website,etc)
 - Can cache information for the next time the browser visits the website in case the server isn't working
+
+## Promises/async
+
+- You can make a function asyncronous and use await to make stuff happen in the background and then execute the code after a certain something happens
