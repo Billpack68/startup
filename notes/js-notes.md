@@ -55,3 +55,7 @@
 ## Promises/async
 
 - You can make a function asyncronous and use await to make stuff happen in the background and then execute the code after a certain something happens
+
+## Fetching
+
+- Fetching is for getting and putting information on the internet. Pretty cool stuff. Will figure it out by doing the simon part.
