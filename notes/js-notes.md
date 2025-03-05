@@ -59,3 +59,7 @@
 ## Fetching
 
 - Fetching is for getting and putting information on the internet. Pretty cool stuff. Will figure it out by doing the simon part.
+
+## Modules
+
+- You can import JS modules using `const varname = require('filepath/name');`
