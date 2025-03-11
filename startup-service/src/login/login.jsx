@@ -1,41 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.css';
 import { useNavigate } from "react-router-dom";
 
-export function Login() {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+export function Login({ onLogin }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [displayError, setDisplayError] = useState('');
   const isFormValid = username.trim() !== "" && password.trim() !== "";
   const navigate = useNavigate();
-  function loginUser() {
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
-    navigate('/browse')
+
+  async function loginOrCreate(endpoint, e) {
+    e.preventDefault(); // Prevent form refresh
+
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ email: username, password: password }),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    });
+
+    if (response.status === 200) {
+      localStorage.setItem('username', username);
+      onLogin(username);
+      navigate('/'); // Redirect on successful login
+    } else {
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`);
+    }
   }
 
-  function usernameChange(e) {
-    setUsername(e.target.value);
-  }
-
-  function passwordChange(e) {
-    setPassword(e.target.value);
-  }
-  
   return (
     <main id="loginMain">
       <p>Login to your account:</p>
       <form>
         <div className="form-group">
           <label htmlFor="usernameInput">Username</label>
-          <input type="text" onChange={usernameChange} className="form-control" id="usernameInput" aria-describedby="emailHelp" placeholder="username" />
+          <input type="email" onChange={(e) => setUsername(e.target.value)} className="form-control" id="usernameInput" placeholder="your@email.com" />
         </div>
         <div className="form-group">
           <label htmlFor="passwordInput">Password</label>
-          <input type="password" onChange={passwordChange} className="form-control" id="passwordInput" placeholder="Password" />
+          <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control" id="passwordInput" placeholder="Password" />
         </div>
-        <button type="submit" className="btn btn-primary" disabled={!isFormValid} onClick={loginUser}>Login</button>
+        <button type="button" className="btn btn-primary" disabled={!isFormValid} onClick={(e) => loginOrCreate(`/api/auth/login`, e)}>Login</button>
+        <button type="button" className="btn btn-secondary" disabled={!isFormValid} onClick={(e) => loginOrCreate(`/api/auth/create`, e)}>Create</button>
       </form>
-      <br />
+      {displayError && <p className="error">{displayError}</p>}
     </main>
   );
 }

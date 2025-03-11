@@ -58,6 +58,11 @@ const verifyAuth = async (req, res, next) => {
     }
 };
 
+//Get Reviews
+apiRouter.get('/reviews', verifyAuth, (_req, res) => {
+    res.send(reviews);
+});
+
 app.use(function (err, req, res, next) {
     res.status(500).send({ type: err.name, message: err.message });
 });
