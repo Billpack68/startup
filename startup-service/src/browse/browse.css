@@ -1,0 +1,34 @@
+button {
+    margin: 10px;
+}
+
+div[class="form-group"] {
+    max-width: 250px;
+}
+
+label {
+    padding: 5px;
+}
+
+form {
+    padding: 20px;
+}
+
+table, th, td {
+    border: 3px solid rgb(255, 175, 0);
+    background: rgb(255, 200, 0);
+    text-align: center;
+}
+
+th[class="col1"] {
+    width: 15%
+}
+th[class="col2"] {
+    width: 30%
+}
+th[class="col3"] {
+    width: 15%
+}
+th[class="col4"] {
+    width: 30%
+}
