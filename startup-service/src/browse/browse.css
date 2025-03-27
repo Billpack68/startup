@@ -20,6 +20,10 @@ table, th, td {
     text-align: center;
 }
 
+table {
+    width: 100%
+}
+
 th[class="col1"] {
     width: 15%
 }
