@@ -11,6 +11,13 @@ import { Review } from './review/review';
 
 export default function App() {
   const [user, setUser] = React.useState(localStorage.getItem("username") || null);
+
+  const handleLogin = (username) => {
+    console.log("User logged in:", username);
+    setUser(username);
+    localStorage.setItem("username", username);
+  };
+
   return (
     <BrowserRouter>
       <div className="body">
@@ -38,7 +45,7 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path='/' element={<Login />} exact />
+          <Route path='/' element={<Login onLogin={handleLogin} />} exact />
           <Route path='/about' element={<About />} />
           <Route path='/browse' element={<Browse user={user}/>} />
           <Route path='/find' element={<Find user={user}/>} />

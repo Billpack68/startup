@@ -18,6 +18,8 @@ export function Login({ onLogin }) {
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     });
 
+    console.log(response.status);
+
     if (response.status === 200) {
       localStorage.setItem('username', username);
       onLogin(username);
