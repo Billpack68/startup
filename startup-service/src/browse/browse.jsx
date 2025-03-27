@@ -32,12 +32,23 @@ export function Browse({user}) {
     }
   }
 
-  function findReviews(event) {
-    event.preventDefault();
-    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-    const matchedReviews = reviews.filter(review => 
-      review.apartment === apartment && review.building === building && review.number === number
-    );
+  async function findReviews(e) {
+    e.preventDefault();
+    try {
+      const reviewsResponse = await fetch('/reviews', {
+        method: 'GET',
+      });
+      if (!reviewsResponse.ok) {
+        throw new Error('Failed to fetch reviews');
+      }
+      const reviewsData = await reviewsResponse.json();
+      const matchedReviews = reviewsData.filter(review => 
+        review.apartment === apartment && review.building === building && review.number === number
+      );
+    
+    } catch (error) {
+      console.error('Error fetching or filtering reviews:', error);
+    }
 
     if (matchedReviews.length === 0) {
       matchedReviews.push(new Review('Heritage Halls', '8', '11', '2025-01-01', 'FakeUserMan', '5', 'This is not a real review, go leave one on the review page and then try searching for it!'));
