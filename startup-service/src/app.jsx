@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
@@ -10,12 +10,45 @@ import { Find } from './find/find';
 import { Review } from './review/review';
 
 export default function App() {
-  const [user, setUser] = React.useState(localStorage.getItem("username") || null);
+  const [user, setUser] = React.useState(null);
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const response = await fetch('/api/auth/status', {
+          method: 'GET',
+          credentials: 'include',
+        });
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData.email);
+        }
+      } catch (error) {
+        console.error('Error checking login status:', error);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
 
   const handleLogin = (username) => {
     console.log("User logged in:", username);
     setUser(username);
-    localStorage.setItem("username", username);
+    // Cookies?
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('/api/auth/logout', {
+        method: 'DELETE',
+        credentials: 'include',
+      });
+      if (response.ok) {
+        setUser(null);
+      }
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
   };
 
   return (
@@ -26,7 +59,8 @@ export default function App() {
           <nav className="navbar">
             <menu className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="">Login</NavLink>
+                {!user && <NavLink className="nav-link" to="">Login</NavLink>}
+                {user && <NavLink onClick={handleLogout} className="nav-link" to="">Logout</NavLink>}
               </li>
               <li className="nav-item">
                 {user && <NavLink className="nav-link" to='browse'>Browse</NavLink> }

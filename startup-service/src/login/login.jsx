@@ -17,9 +17,7 @@ export function Login({ onLogin }) {
       body: JSON.stringify({ email: username, password: password }),
       headers: { 'Content-type': 'application/json; charset=UTF-8' },
     });
-
-    console.log(response.status);
-
+    
     if (response.status === 200) {
       localStorage.setItem('username', username);
       onLogin(username);

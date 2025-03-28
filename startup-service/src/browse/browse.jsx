@@ -88,7 +88,7 @@ export function Browse({user}) {
           </tr>
         </thead>
         <tbody>
-          {matchingReviews.map((review, index) => (
+          {matchingReviews.reverse().map((review, index) => (
             <tr key={index}>
               <td>{review.date}</td>
               <td>{review.user}</td>

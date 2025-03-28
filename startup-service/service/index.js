@@ -70,6 +70,14 @@ const verifyAuth = async (req, res, next) => {
     }
 };
 
+apiRouter.get('/auth/status', verifyAuth, (req, res) => {
+    if (req.user) {
+        res.status(200).send({ email: req.user.email }); 
+    } else {
+        res.status(401).send({ msg: 'Not authenticated' });
+    }
+});
+
 //Get Reviews
 apiRouter.get('/reviews', verifyAuth, (_req, res) => {
     res.send(reviews);
