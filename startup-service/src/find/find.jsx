@@ -21,8 +21,13 @@ export function Find({user}) {
 
     const response = await fetch(`https://overpass-api.de/api/interpreter?data=`+ encodeURIComponent(query));
     const result = await response.json();
-    console.log(result);
     setResults(result);
+
+    //TODO: Clean data so it can be put in the table!!!!!
+    //TODO: Alter table columns to be address and name, probably just those two
+    // for (let i = 0; i < results.elements.length; i++) {
+    //   console.log(results.elements[i]);
+    // }
   }
   
 
