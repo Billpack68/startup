@@ -13,6 +13,9 @@ const authCookieName = 'token';
 let users = [];
 let reviews = [];
 
+let apiRouter = express.Router();
+app.use(`/api`, apiRouter);
+
 class Review {
     constructor(apartment, building, number, date, user, rating, reviewText) {
         this.apartment = apartment;
@@ -24,9 +27,6 @@ class Review {
         this.reviewText = reviewText;
     }
 }
-
-let apiRouter = express.Router();
-app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
     if (await findUser('email', req.body.email)) {
