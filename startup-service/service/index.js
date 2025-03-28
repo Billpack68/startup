@@ -13,6 +13,18 @@ const authCookieName = 'token';
 let users = [];
 let reviews = [];
 
+class Review {
+    constructor(apartment, building, number, date, user, rating, reviewText) {
+        this.apartment = apartment;
+        this.building = building;
+        this.number = number;
+        this.date = date;
+        this.user = user;
+        this.rating = rating;
+        this.reviewText = reviewText;
+    }
+}
+
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
@@ -61,6 +73,25 @@ const verifyAuth = async (req, res, next) => {
 //Get Reviews
 apiRouter.get('/reviews', verifyAuth, (_req, res) => {
     res.send(reviews);
+});
+
+apiRouter.post('/addreview', verifyAuth, (req, res) => {
+    try {
+        const { apartment, building, number, date, user, rating, reviewText } = req.body;
+        
+        if (!apartment || !building || !number || !date || !rating || !reviewText) {
+            return res.status(400).send({ msg: 'Missing required fields' });
+        }
+
+        const review = new Review(apartment, building, number, date, user, rating, reviewText);
+
+        reviews.push(review);
+
+        res.status(201).send({ msg: 'Review added successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send({ msg: 'Internal server error' });
+    }
 });
 
 app.use(function (err, req, res, next) {

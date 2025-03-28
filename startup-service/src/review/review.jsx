@@ -46,21 +46,33 @@ export function Review({ user }) {
     }
   }
 
-  function createReview() {
-    const review = new Review(apartment, building, number, date, user, rating, reviewText);
-    if (localStorage.getItem('reviews')) {
-      let reviews = JSON.parse(localStorage.getItem('reviews'));
-      reviews.push(review);
-      localStorage.setItem('reviews', JSON.stringify(reviews));
+  async function createReview(e) {
+    e.preventDefault();
+
+    const review = await fetch('/api/addreview', {
+      method: 'POST',
+      body: JSON.stringify({ apartment: apartment, building: building, number: number, date: date, rating: rating, reviewText: reviewText}),
+      headers: {'Content-Type': 'application/json',},
+    });
+
+    if (review.ok) {
+      console.log('Success!');
     } else {
-      localStorage.setItem('reviews', JSON.stringify([review]));
+      console.error('Failed to add review:', await review.text());
     }
+    
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    createReview();
-  }
+  // function createReview() {
+  //   const review = new Review(apartment, building, number, date, user, rating, reviewText);
+  //   if (localStorage.getItem('reviews')) {
+  //     let reviews = JSON.parse(localStorage.getItem('reviews'));
+  //     reviews.push(review);
+  //     localStorage.setItem('reviews', JSON.stringify(reviews));
+  //   } else {
+  //     localStorage.setItem('reviews', JSON.stringify([review]));
+  //   }
+  // }
   
   
   return (
@@ -93,7 +105,7 @@ export function Review({ user }) {
           <label htmlFor="reviewText">Review</label>
           <input type="text" onChange={reviewTextChange} className="form-control" id="review" placeholder="Best dryer ever!" />
         </div>
-        <button type="submit" disabled={!isFormValid} onClick={handleSubmit} className="btn btn-primary">Submit</button>
+        <button type="submit" disabled={!isFormValid} onClick={createReview} className="btn btn-primary">Submit</button>
       </form>
     </main>
   );
