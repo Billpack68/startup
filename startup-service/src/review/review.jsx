@@ -62,17 +62,6 @@ export function Review({ user }) {
     }
     
   }
-
-  // function createReview() {
-  //   const review = new Review(apartment, building, number, date, user, rating, reviewText);
-  //   if (localStorage.getItem('reviews')) {
-  //     let reviews = JSON.parse(localStorage.getItem('reviews'));
-  //     reviews.push(review);
-  //     localStorage.setItem('reviews', JSON.stringify(reviews));
-  //   } else {
-  //     localStorage.setItem('reviews', JSON.stringify([review]));
-  //   }
-  // }
   
   
   return (
