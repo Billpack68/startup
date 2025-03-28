@@ -10,7 +10,7 @@ export function Login({ onLogin }) {
   const navigate = useNavigate();
 
   async function loginOrCreate(endpoint, e) {
-    e.preventDefault(); // Prevent form refresh
+    e.preventDefault();
 
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -21,7 +21,7 @@ export function Login({ onLogin }) {
     if (response.status === 200) {
       localStorage.setItem('username', username);
       onLogin(username);
-      navigate('/'); // Redirect on successful login
+      navigate('/browse');
     } else {
       const body = await response.json();
       setDisplayError(`⚠ Error: ${body.msg}`);

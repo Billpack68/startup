@@ -64,6 +64,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 const verifyAuth = async (req, res, next) => {
     const user = await findUser('token', req.cookies[authCookieName]);
     if (user) {
+        req.user = user;
         next();
     } else {
         res.status(401).send({ msg: 'Unauthorized' });
@@ -71,11 +72,7 @@ const verifyAuth = async (req, res, next) => {
 };
 
 apiRouter.get('/auth/status', verifyAuth, (req, res) => {
-    if (req.user) {
-        res.status(200).send({ email: req.user.email }); 
-    } else {
-        res.status(401).send({ msg: 'Not authenticated' });
-    }
+    res.status(200).send({ email: req.user.email }); 
 });
 
 //Get Reviews

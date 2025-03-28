@@ -34,7 +34,6 @@ export default function App() {
   const handleLogin = (username) => {
     console.log("User logged in:", username);
     setUser(username);
-    // Cookies?
   };
 
   const handleLogout = async () => {
