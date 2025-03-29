@@ -34,7 +34,7 @@ export function Login({ onLogin }) {
       <form>
         <div className="form-group">
           <label htmlFor="usernameInput">Username</label>
-          <input type="email" onChange={(e) => setUsername(e.target.value)} className="form-control" id="usernameInput" placeholder="your@email.com" />
+          <input type="email" onChange={(e) => setUsername(e.target.value)} className="form-control" id="usernameInput" placeholder="Username" />
         </div>
         <div className="form-group">
           <label htmlFor="passwordInput">Password</label>
