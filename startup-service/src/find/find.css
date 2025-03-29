@@ -17,15 +17,16 @@ table, th, td {
 }
 
 table {
+    table-layout: fixed;
     width: 100%
 }
 
 th[class="col1"] {
-    width: 25%
+    max-width: 25%
 }
 th[class="col2"] {
-    width: 50%
+    max-width: 50%;
 }
 th[class="col3"] {
-    width: 25%
+    max-width: 25%
 }
