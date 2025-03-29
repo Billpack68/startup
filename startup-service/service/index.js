@@ -28,6 +28,13 @@ class Review {
     }
 }
 
+class Laundromat {
+    constructor(name, address) {
+        this.name = name;
+        this.address = address;
+    }
+}
+
 apiRouter.post('/auth/create', async (req, res) => {
     if (await findUser('email', req.body.email)) {
         res.status(409).send({ msg: 'Existing user' });
@@ -96,6 +103,25 @@ apiRouter.post('/addreview', verifyAuth, (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send({ msg: 'Internal server error' });
+    }
+});
+
+//Find Laundromats
+apiRouter.get('/getLaundromats', async (req, res) => {
+    console.log("In the backend");
+    const city = req.query.city;
+    const query = `
+        [out:json][timeout:25];
+        area["name"="${city}"]->.searchArea;
+        node["shop"="laundry"](area.searchArea);
+        out geom;
+    `;
+    try {
+        const response = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).send('Error fetching laundromats');
     }
 });
 

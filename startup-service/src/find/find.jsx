@@ -14,29 +14,14 @@ export function Find({user}) {
     console.log(results);
   }, [results]);
 
-  async function getData() {
-    return new Promise((resolve) => setTimeout(async () => {
-      const query = `
-      [out:json][timeout:25];
-      area["name"="${city}"]->.searchArea;
-      node["shop"="laundry"](area.searchArea);
-      out geom;`;
-
-      const response = await fetch(`https://overpass-api.de/api/interpreter?data=`+ encodeURIComponent(query));
-      resolve(response);
-    }, 1000));
-  }
-
-  async function storeData(response) {
-    const result = await response.json();
-    setResults(result);
-  }
-
   async function getLaundromats(e) {
     e.preventDefault();
-    const response = await getData();
-    await storeData(response);
-  }
+    const response = await fetch(`/api/getLaundromats?city=${city}`, {
+      method: 'GET',
+    });
+    const data = await response.json();
+    setResults(data);
+}
   
 
   return (
