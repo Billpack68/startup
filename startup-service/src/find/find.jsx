@@ -3,7 +3,7 @@ import './find.css';
 
 export function Find({user}) {
   const [city, setCity] = React.useState('');
-  const [results, setResults] = React.useState(null);
+  const [results, setResults] = React.useState([]);
   const isFormValid = city.trim() !== "";
   
   function cityChange(e) {
@@ -47,6 +47,13 @@ export function Find({user}) {
           </tr>
         </thead>
         <tbody>
+        {results.map((result, index) => (
+            <tr key={index}>
+              <td>{result.name}</td>
+              <td>{result.address}</td>
+              <td>{result.hours}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </main>
