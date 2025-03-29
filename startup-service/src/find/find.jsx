@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './find.css';
 
 export function Find({user}) {
@@ -10,24 +10,32 @@ export function Find({user}) {
     setCity(e.target.value);
   }
 
-  async function getLaundromats(e) {
-    e.preventDefault();
-    console.log("City:", city);
-    const query = `
+  useEffect(() => {
+    console.log(results);
+  }, [results]);
+
+  async function getData() {
+    return new Promise((resolve) => setTimeout(async () => {
+      const query = `
       [out:json][timeout:25];
       area["name"="${city}"]->.searchArea;
-      nwr["shop"="laundry"](area.searchArea);
+      node["shop"="laundry"](area.searchArea);
       out geom;`;
 
-    const response = await fetch(`https://overpass-api.de/api/interpreter?data=`+ encodeURIComponent(query));
+      const response = await fetch(`https://overpass-api.de/api/interpreter?data=`+ encodeURIComponent(query));
+      resolve(response);
+    }, 1000));
+  }
+
+  async function storeData(response) {
     const result = await response.json();
     setResults(result);
+  }
 
-    //TODO: Clean data so it can be put in the table!!!!!
-    //TODO: Alter table columns to be address and name, probably just those two
-    // for (let i = 0; i < results.elements.length; i++) {
-    //   console.log(results.elements[i]);
-    // }
+  async function getLaundromats(e) {
+    e.preventDefault();
+    const response = await getData();
+    await storeData(response);
   }
   
 
