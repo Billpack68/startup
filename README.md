@@ -54,11 +54,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - Login calls login and create account endpoints
+- [x] **Node.js/Express HTTP service** - I set up an express backend following the instructions
+- [x] **Static middleware for frontend** - I have my react pages like app.jsx and the various pages from the react deliverable
+- [x] **Calls to third party endpoints** - In src/find/find.jsx I call the overpass API to retrieve data on local laundromats
+- [x] **Backend service endpoints** - Service endpoints for logging in and out, creating accounts, leaving reviews of dryers/washers, getting reviews stored in the backend.
+- [x] **Frontend calls service endpoints** - Login calls login and create account endpoints, once logged in any page can call logout, review page calls review endpoint to add a new review, browse page calls endpoint for getting reviews from the backend
 
 ## 🚀 DB/Login deliverable
 
