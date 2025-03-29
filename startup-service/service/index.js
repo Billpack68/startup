@@ -29,9 +29,10 @@ class Review {
 }
 
 class Laundromat {
-    constructor(name, address) {
+    constructor(name, address, hours) {
         this.name = name;
         this.address = address;
+        this.hours = hours;
     }
 }
 
@@ -108,7 +109,6 @@ apiRouter.post('/addreview', verifyAuth, (req, res) => {
 
 //Find Laundromats
 apiRouter.get('/getLaundromats', async (req, res) => {
-    console.log("In the backend");
     const city = req.query.city;
     const query = `
         [out:json][timeout:25];
@@ -119,11 +119,52 @@ apiRouter.get('/getLaundromats', async (req, res) => {
     try {
         const response = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
         const data = await response.json();
-        res.json(data);
+        const parsedData = parseData(data.elements);
+        res.json(parsedData);
     } catch (error) {
         res.status(500).send('Error fetching laundromats');
     }
 });
+
+function parseData(data) {
+    let parsedData = [];
+    for (let i = 0; i < data.length; i++) {
+        let name = null;
+        let address = null;
+        let hours = null;
+
+        if ('name' in data[i].tags) {
+            name = data[i].tags.name;
+        } else {
+            name = "Unnamed Laundry Place";
+        }
+
+        if ('addr:housenumber' in data[i].tags === false && 'addr:street' in data[i].tags === false) {
+            address = "I couldn't find an address, but here are the coordinates: " + data[i].lat + ", " + data[i].lon;
+        } else {
+            if ('addr:housenumber' in data[i].tags) {
+                address = data[i].tags[`addr:housenumber`] + " ";
+            } else {
+                address = "(unknown building number on) "
+            }
+            if ('addr:street' in data[i].tags) {
+                address += data[i].tags['addr:street']
+            } else {
+                address += "(on some unknown street)"
+            }
+        }
+
+        if ('opening_hours' in data[i].tags) {
+            hours = data[i].tags.opening_hours;
+        } else {
+            hours = "Unknown";
+        }
+
+        const laundromat = new Laundromat(name, address, hours);
+        parsedData.push(laundromat)
+    }
+    return parsedData;
+}
 
 app.use(function (err, req, res, next) {
     res.status(500).send({ type: err.name, message: err.message });
