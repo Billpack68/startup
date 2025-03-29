@@ -57,6 +57,8 @@ My startup - need to add a link to it
 - When wanting to put code into effect, I'll use some sort of .sh deploy file.
 - The command to run in git bash is `./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s [startup/simon]`
 - RUN THE FILE WHILE YOU ARE IN THE DIRECTORY YOU WANT TO DEPLOY, it will upload everything in whatever directory you are in haha
+- The `-k` is the key parameter, `-h` is the domain, and `-s` is the name of the application
+- The deploy files are shell scripts which are just a collection of command line commands put into a text file that automates running them all so that you don't have to do it over and over and over
 
 ## Testing
 
