@@ -10,14 +10,69 @@ export function Find({user}) {
     setCity(e.target.value);
   }
 
+  class Laundromat {
+    constructor(name, address, hours) {
+      this.name = name;
+      this.address = address;
+      this.hours = hours;
+    }
+  }
+
   async function getLaundromats(e) {
     e.preventDefault();
-    const response = await fetch(`/api/getLaundromats?city=${city}`, {
-      method: 'GET',
-    });
+    const query = `
+      [out:json][timeout:25];
+      area["name"="${city}"]->.searchArea;
+      node["shop"="laundry"](area.searchArea);
+      out geom;
+    `;
+
+    const response = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
     const data = await response.json();
-    setResults(data);
-}
+    const parsedData = parseData(data.elements);
+    console.log("Parsely");
+    setResults(parsedData);
+  }
+
+  function parseData(data) {
+    let parsedData = [];
+    for (let i = 0; i < data.length; i++) {
+      let name = null;
+      let address = null;
+      let hours = null;
+
+      if ('name' in data[i].tags) {
+        name = data[i].tags.name;
+      } else {
+        name = "Unnamed Laundry Place";
+      }
+
+      if ('addr:housenumber' in data[i].tags === false && 'addr:street' in data[i].tags === false) {
+        address = "I couldn't find an address, but here are the coordinates: " + data[i].lat + ", " + data[i].lon;
+      } else {
+        if ('addr:housenumber' in data[i].tags) {
+          address = data[i].tags[`addr:housenumber`] + " ";
+        } else {
+          address = "(unknown building number on) "
+        }
+        if ('addr:street' in data[i].tags) {
+          address += data[i].tags['addr:street']
+        } else {
+          address += "(on some unknown street)"
+        }
+      }
+
+      if ('opening_hours' in data[i].tags) {
+        hours = data[i].tags.opening_hours;
+      } else {
+        hours = "Unknown";
+      }
+
+      const laundromat = new Laundromat(name, address, hours);
+      parsedData.push(laundromat)
+    }
+    return parsedData;
+  }
   
 
   return (
