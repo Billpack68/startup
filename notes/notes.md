@@ -57,3 +57,8 @@ My startup - need to add a link to it
 - When wanting to put code into effect, I'll use some sort of .sh deploy file.
 - The command to run in git bash is `./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s [startup/simon]`
 - RUN THE FILE WHILE YOU ARE IN THE DIRECTORY YOU WANT TO DEPLOY, it will upload everything in whatever directory you are in haha
+
+## Testing
+
+- For testing, run `npm run dev` from startup-service to run frontend
+- Run `node service/index.js` from startup-service to run backend
