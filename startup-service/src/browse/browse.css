@@ -21,18 +21,19 @@ table, th, td {
 }
 
 table {
+    table-layout: fixed;
     width: 100%
 }
 
 th[class="col1"] {
-    width: 15%
+    max-width: 20%
 }
 th[class="col2"] {
-    width: 30%
+    max-width: 20%
 }
 th[class="col3"] {
-    width: 15%
+    max-width: 20%;
 }
 th[class="col4"] {
-    width: 30%
+    max-width: 40%;
 }
