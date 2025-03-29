@@ -60,7 +60,7 @@ export function Browse({user}) {
 
   return (
     <main>
-      <p>Currently logged in as {user}</p>
+      <p>Currently logged in as: {user}</p>
       
       <form onSubmit={findReviews}>
         <div className="form-group">

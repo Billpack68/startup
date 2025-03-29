@@ -65,7 +65,7 @@ export function Review({ user }) {
   
   return (
     <main>
-      <p>Currently logged in as {user}</p>
+      <p>Currently logged in as: {user}</p>
       
       <p>Submit a review:</p>
       <form>

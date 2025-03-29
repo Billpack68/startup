@@ -10,10 +10,6 @@ export function Find({user}) {
     setCity(e.target.value);
   }
 
-  useEffect(() => {
-    console.log(results);
-  }, [results]);
-
   async function getLaundromats(e) {
     e.preventDefault();
     const response = await fetch(`/api/getLaundromats?city=${city}`, {
@@ -26,7 +22,7 @@ export function Find({user}) {
 
   return (
     <main>
-      <p>Currently logged in as {user}</p>
+      <p>Currently logged in as: {user}</p>
       <p>Find laundromats near you:</p>
       
       <form>
