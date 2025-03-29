@@ -41,35 +41,12 @@ export function Find({user}) {
       <table>
         <thead>
           <tr>
-            <th className="col1">Address</th>
-            <th className="col2">Name</th>
-            <th className="col3">Distance</th>
-            <th className="col4">Hours</th>
-            <th className="col5">Price</th>
+            <th className="col1">Name</th>
+            <th className="col2">Address</th>
+            <th className="col3">Hours</th>
           </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>"Dummy data" (real places)</td>
-            <td>This will use an API</td>
-            <td>to find</td>
-            <td>REAL LAUNDROMATS (NOT CLICKBAIT)</td>
-            <td>near<br />YOU</td>
-          </tr>
-          <tr>
-            <td>1624 900 E, Provo, UT 84602</td>
-            <td>BYU Laundry</td>
-            <td>REALLY Close</td>
-            <td>7:30-5:30 Mon-Fri<br />10-1 Sat</td>
-            <td>Varies</td>
-          </tr>
-          <tr>
-            <td>440 900 E, Provo, UT 84606</td>
-            <td>Laundry On Ninth</td>
-            <td>Kinda close</td>
-            <td>24/7</td>
-            <td>$1.50 per Wash<br />$0.50 per Dry</td>
-          </tr>
         </tbody>
       </table>
     </main>
