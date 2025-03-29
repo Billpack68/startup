@@ -52,7 +52,7 @@ export function Browse({user}) {
     }
 
     if (matchedReviews.length === 0) {
-      matchedReviews.push(new Review('Heritage Halls', '8', '11', '2025-01-01', 'FakeUserMan', '5', 'This is not a real review, go leave one on the review page and then try searching for it!'));
+      matchedReviews.push(new Review('Heritage Halls', '8', '11', '', '', '?', 'No reviews yet!'));
     }
 
     setMatchingReviews(matchedReviews);
