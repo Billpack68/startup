@@ -3,6 +3,8 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const app = express();
+const DB = require('./database.js');
+
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.use(express.static('public'));
@@ -13,7 +15,7 @@ const authCookieName = 'token';
 let users = [];
 let reviews = [];
 
-let apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 class Review {
@@ -182,8 +184,8 @@ async function createUser(email, password) {
         password: passwordHash,
         token: uuid.v4(),
     };
-    users.push(user);
 
+    await DB.addUser(user);
     return user;
 }
 
