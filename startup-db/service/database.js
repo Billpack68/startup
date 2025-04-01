@@ -53,7 +53,7 @@ function getReviews() {
 
   const query = { date: { $gt: past28Days.toISOString(), $lt: tmr.toISOString() } };
   const options = {
-    sort: { date : 1},
+    sort: { date : -1},
     limit: 100,
   };
   const cursor = reviewCollection.find(query, options);

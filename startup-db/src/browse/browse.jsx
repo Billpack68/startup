@@ -43,7 +43,7 @@ export function Browse({user}) {
         throw new Error('Failed to fetch reviews');
       }
       const reviewsData = await reviewsResponse.json();
-      
+
       if (number != "") {
         matchedReviews = reviewsData.filter(review => 
           review.apartment === apartment && review.building === building && review.number === number);
@@ -95,7 +95,7 @@ export function Browse({user}) {
           </tr>
         </thead>
         <tbody>
-          {matchingReviews.reverse().map((review, index) => (
+          {matchingReviews.map((review, index) => (
             <tr key={index}>
               <td>{review.date.slice(5,7)}/{review.date.slice(8,10)}/{review.date.slice(0,4)}</td>
               <td>{review.user}</td>
