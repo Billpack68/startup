@@ -62,10 +62,10 @@ export default function App() {
                 {user && <NavLink onClick={handleLogout} className="nav-link" to="">Logout</NavLink>}
               </li>
               <li className="nav-item">
-                {user && <NavLink className="nav-link" to='browse'>Browse</NavLink> }
+                {user && <NavLink className="nav-link" to='browse'>Browse Washers/Dryers</NavLink> }
               </li>
               <li className="nav-item">
-                {user && <NavLink className="nav-link" to='review'>Review</NavLink> }
+                {user && <NavLink className="nav-link" to='review'>Leave a Review</NavLink> }
               </li>
               <li className="nav-item">
                 {user && <NavLink className="nav-link" to='find'>Laundromats near me</NavLink> }
