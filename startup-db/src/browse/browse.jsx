@@ -6,7 +6,7 @@ export function Browse({user}) {
   const [building, setBuilding] = React.useState('');
   const [number, setNumber] = React.useState('');
   const [matchingReviews, setMatchingReviews] = React.useState([]); // Use state for reviews
-  const isFormValid = apartment.trim() !== "" && building.trim() !== "" && number.trim() !== "";
+  const isFormValid = apartment.trim() !== "" && building.trim() !== "";
 
   function apartmentChange(e) {
     setApartment(e.target.value);
@@ -43,9 +43,15 @@ export function Browse({user}) {
         throw new Error('Failed to fetch reviews');
       }
       const reviewsData = await reviewsResponse.json();
-      matchedReviews = reviewsData.filter(review => 
-        review.apartment === apartment && review.building === building && review.number === number
-      );
+      
+      if (number != "") {
+        matchedReviews = reviewsData.filter(review => 
+          review.apartment === apartment && review.building === building && review.number === number);
+      } else {
+        matchedReviews = reviewsData.filter(review => 
+          review.apartment === apartment && review.building === building
+        );
+      }
     
     } catch (error) {
       console.error('Error fetching or filtering reviews:', error);
@@ -83,8 +89,9 @@ export function Browse({user}) {
           <tr>
             <th className="col1">Date</th>
             <th className="col2">User</th>
-            <th className="col3">Rating</th>
-            <th className="col4">Review</th>
+            <th className="col3">Number</th>
+            <th className="col4">Rating</th>
+            <th className="col5">Review</th>
           </tr>
         </thead>
         <tbody>
@@ -92,6 +99,7 @@ export function Browse({user}) {
             <tr key={index}>
               <td>{review.date.slice(5,7)}/{review.date.slice(8,10)}/{review.date.slice(0,4)}</td>
               <td>{review.user}</td>
+              <td>{review.number}</td>
               <td>{review.rating}/5</td>
               <td>{review.reviewText}</td>
             </tr>
