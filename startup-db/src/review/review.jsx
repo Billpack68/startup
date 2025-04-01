@@ -67,7 +67,7 @@ export function Review({ user }) {
     <main>
       <p>Currently logged in as: {user}</p>
       
-      <p>Submit a review:</p>
+      <p>Submit a review by answering the following questions and then hitting submit:</p>
       <form>
         <div className="form-group">
           <label htmlFor="apartmentComplex">Apartment complex</label>
@@ -75,11 +75,11 @@ export function Review({ user }) {
         </div>
         <div className="form-group">
           <label htmlFor="buildingNumber">Building Number</label>
-          <input type="number" onChange={buildingChange} className="form-control" id="buildingNumber" placeholder="8" />
+          <input type="number" onChange={buildingChange} className="form-control" id="buildingNumber" />
         </div>
         <div className="form-group">
           <label htmlFor="unitNumber">Washer/Dryer Number</label>
-          <input type="number" onChange={numberChange} className="form-control" id="unitNumber" placeholder="11" />
+          <input type="number" onChange={numberChange} className="form-control" id="unitNumber"/>
         </div>
         <div className="form-group">
           <label htmlFor="date">Date</label>
@@ -87,7 +87,7 @@ export function Review({ user }) {
         </div>
         <div className="form-group">
           <label htmlFor="rating">Rating (1-5)</label>
-          <input type="number" onChange={ratingChange} className="form-control" id="rating" placeholder="4" />
+          <input type="number" onChange={ratingChange} className="form-control" id="rating" />
         </div>
         <div className="form-group">
           <label htmlFor="reviewText">Review</label>
