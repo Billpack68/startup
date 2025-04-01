@@ -34,7 +34,6 @@ export function Browse({user}) {
 
   async function findReviews(e) {
     e.preventDefault();
-    console.log("Finding reviews!");
     let matchedReviews = [];
     try {
       const reviewsResponse = await fetch('/api/reviews', {
@@ -44,8 +43,6 @@ export function Browse({user}) {
         throw new Error('Failed to fetch reviews');
       }
       const reviewsData = await reviewsResponse.json();
-      console.log("Got data");
-      console.log(reviewsData);
       matchedReviews = reviewsData.filter(review => 
         review.apartment === apartment && review.building === building && review.number === number
       );

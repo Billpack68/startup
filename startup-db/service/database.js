@@ -46,10 +46,10 @@ async function addReview(review) {
 function getReviews() {
   console.log("Getting reviews");
   const now = new Date();
-  const tmr = new Date(now.getTime() + (24 * 60 * 60 * 1000))
+  const tmr = new Date(now.getTime() + (24 * 60 * 60 * 1000)); // Because of UTC being ahead, probably unneccessary in most cases but oh well
   const past28Days = new Date(now.getTime() - (28 * 24 * 60 * 60 * 1000));
 
-  console.log("Querying reviews from:", past28Days, "to:", tmr);
+  // console.log("Querying reviews from:", past28Days, "to:", tmr);
 
   const query = { date: { $gt: past28Days.toISOString(), $lt: tmr.toISOString() } };
   const options = {
