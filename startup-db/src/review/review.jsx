@@ -47,10 +47,10 @@ export function Review({ user }) {
   }
 
   async function createReview(e) {
-
+    const formattedDate = new Date(date);
     const review = await fetch('/api/addreview', {
       method: 'POST',
-      body: JSON.stringify({ apartment: apartment, building: building, number: number, date: date, user: user, rating: rating, reviewText: reviewText}),
+      body: JSON.stringify({ apartment: apartment, building: building, number: number, date: formattedDate, user: user, rating: rating, reviewText: reviewText}),
       headers: {'Content-Type': 'application/json',},
     });
 

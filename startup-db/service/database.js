@@ -39,18 +39,24 @@ async function updateUser(user) {
 }
 
 async function addReview(review) {
-  console.log("Adding a score");
+  console.log("Adding a review");
   return reviewCollection.insertOne(review);
 }
 
-function getHighScores() {
-  console.log("Getting highscores");
-  const query = { score: { $gt: 0, $lt: 900 } };
+function getReviews() {
+  console.log("Getting reviews");
+  const now = new Date();
+  const tmr = new Date(now.getTime() + (24 * 60 * 60 * 1000))
+  const past28Days = new Date(now.getTime() - (28 * 24 * 60 * 60 * 1000));
+
+  console.log("Querying reviews from:", past28Days, "to:", tmr);
+
+  const query = { date: { $gt: past28Days.toISOString(), $lt: tmr.toISOString() } };
   const options = {
-    sort: { score: -1 },
-    limit: 10,
+    sort: { date : 1},
+    limit: 100,
   };
-  const cursor = scoreCollection.find(query, options);
+  const cursor = reviewCollection.find(query, options);
   return cursor.toArray();
 }
 
@@ -60,5 +66,5 @@ module.exports = {
   addUser,
   updateUser,
   addReview,
-  getHighScores,
+  getReviews,
 };
