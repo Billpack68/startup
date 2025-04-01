@@ -64,11 +64,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
+- [x] **User registration** - Creating an account calls mongo to store user info in the database
+- [x] **User login and logout** - Logging in and out endpoints call mongo to update user info
+- [x] **Stores data in MongoDB** - Backend endpoints call methods from database.js which interact with the mongo database
+- [x] **Stores credentials in MongoDB** - User credentials are stored in mongo database
+- [x] **Restricts functionality based on authentication** - Verify user endpoint is called before proceeding to other endpoints, such as viewing reviews on washers/dryers or leaving reviews
 
 ## 🚀 WebSocket deliverable
 
