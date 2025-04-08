@@ -74,8 +74,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - I used the same peerProxy idea that simon websocket uses to listen for websocket connections
+- [x] **Frontend makes WebSocket connection** - I borrowed the gameEventNotifier class from simon but renamed everything to be less... gamey, the browse and review .jsx files use it
+- [x] **Data sent over WebSocket connection** - Review page sends an event notification when a review is left by a user on a washer/dryer
+- [x] **WebSocket data displayed** - Browse page shows a popup when another user leaves a review stating the username and apartment complex
+- [x] **Application is fully functional** - Roger that. Feels really freakin' good
