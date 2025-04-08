@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReviewEvent, EventNotifier } from './gameNotifier';
+import { ReviewEvent, EventNotifier } from '../eventNotifier';
 import './browse.css';
 
 export function Browse({user}) {
@@ -7,8 +7,18 @@ export function Browse({user}) {
   const [building, setBuilding] = React.useState('');
   const [number, setNumber] = React.useState('');
   const [rating, setRating] = React.useState('');
-  const [matchingReviews, setMatchingReviews] = React.useState([]); // Use state for reviews
+  const [matchingReviews, setMatchingReviews] = React.useState([]); 
   const isFormValid = apartment.trim() !== "" && building.trim() !== "";
+
+  const [events, setEvent] = React.useState([]);
+
+  React.useEffect(() => {
+    GameNotifier.addHandler(handleGameEvent);
+
+    return () => {
+      GameNotifier.removeHandler(handleGameEvent);
+    };
+  });
 
   function apartmentChange(e) {
     setApartment(e.target.value);
