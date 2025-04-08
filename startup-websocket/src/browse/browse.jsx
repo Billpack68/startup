@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReviewEvent, EventNotifier } from '../eventNotifier';
+import { ReviewEvent, EventNotifier } from '../review/eventNotifier';
 import { MessageDialog } from './messageDialog';
 import './browse.css';
 
@@ -39,7 +39,6 @@ export function Browse({user}) {
     if (event.type === ReviewEvent.End) {
       showReviewMessage(event);
     }
-
   }
 
   function apartmentChange(e) {
