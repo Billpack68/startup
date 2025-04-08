@@ -1,15 +1,15 @@
 import React from 'react';
-
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import './messageDialog.css'; 
 
 export function MessageDialog(props) {
   return (
-    <Modal {...props} show={props.message} centered>
-      <Modal.Body>{props.message}</Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+    <div className={`modal ${props.message ? 'show' : ''}`} style={{ display: props.message ? 'block' : 'none' }}>
+      <div className="modal-content">
+        <div className="modal-body">{props.message}</div>
+        <div className="modal-footer">
+          <button onClick={props.onHide}>Close</button>
+        </div>
+      </div>
+    </div>
   );
 }

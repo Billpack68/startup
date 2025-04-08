@@ -2,11 +2,14 @@ const { WebSocketServer } = require('ws');
 
 function peerProxy(httpServer) {
   const socketServer = new WebSocketServer({ server: httpServer });
-
+  console.log("Starting websocket");
   socketServer.on('connection', (socket) => {
+    console.log("Socket connected");
+    
     socket.isAlive = true;
 
     socket.on('message', function message(data) {
+      console.log("--SOCKET SENT MESSAGE TO BACKEND--");
       socketServer.clients.forEach((client) => {
         if (client !== socket && client.readyState === WebSocket.OPEN) {
           client.send(data);
@@ -29,12 +32,4 @@ function peerProxy(httpServer) {
   }, 10000);
 }
 
-function broadcastToClients(message) {
-  socketServer.clients.forEach(client => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(message);
-    }
-  });
-}
-
-module.exports = { peerProxy, broadcastToClients };
+module.exports = { peerProxy };

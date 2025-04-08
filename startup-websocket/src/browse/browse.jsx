@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReviewEvent, EventNotifier } from '../eventNotifier';
+import { MessageDialog } from './messageDialog';
 import './browse.css';
 
 export function Browse({user}) {
@@ -10,15 +11,36 @@ export function Browse({user}) {
   const [matchingReviews, setMatchingReviews] = React.useState([]); 
   const isFormValid = apartment.trim() !== "" && building.trim() !== "";
 
-  const [events, setEvent] = React.useState([]);
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState('');
+
 
   React.useEffect(() => {
-    GameNotifier.addHandler(handleGameEvent);
+    EventNotifier.addHandler(handleReviewEvent);
 
     return () => {
-      GameNotifier.removeHandler(handleGameEvent);
+      EventNotifier.removeHandler(handleReviewEvent);
     };
-  });
+  }, []);
+
+  const showReviewMessage = (event) => {
+    const reviewMessage = `${event.from} left a review of a washer/dryer in ${event.value.apartment} ${event.value.building}`;
+    setMessage(reviewMessage);
+    setShowMessage(true);
+
+    // Automatically hide the message after 5 seconds
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 5000);
+  };
+
+  function handleReviewEvent(event) {
+    console.log("event time!");
+    if (event.type === ReviewEvent.End) {
+      showReviewMessage(event);
+    }
+
+  }
 
   function apartmentChange(e) {
     setApartment(e.target.value);
@@ -90,6 +112,7 @@ export function Browse({user}) {
 
   return (
     <main>
+      <MessageDialog message={showMessage ? message : null} onHide={() => setShowMessage(false)} />
       <p>Currently logged in as: {user}</p>
 
       <p>Enter an apartment complex and building number to find recent reviews left by people on washers/dryers in that building!

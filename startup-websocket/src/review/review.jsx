@@ -48,6 +48,7 @@ export function Review({ user }) {
   }
 
   async function createReview(e) {
+    e.preventDefault();
     const formattedDate = new Date(date);
     const review = await fetch('/api/addreview', {
       method: 'POST',
@@ -57,6 +58,7 @@ export function Review({ user }) {
 
     if (review.ok) {
       console.log('Success!');
+
       const reviewData = {
         apartment,
         building,
@@ -66,8 +68,8 @@ export function Review({ user }) {
         rating,
         reviewText,
       };
-      EventNotifier.broadcastEvent(user, ReviewEvent.End, reviewData);
 
+      EventNotifier.broadcastEvent(user, ReviewEvent.End, reviewData);
     } else {
       console.error('Failed to add review:', await review.text());
     }

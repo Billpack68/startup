@@ -18,12 +18,13 @@ class ReviewEventNotifier {
   constructor() {
     let port = window.location.port;
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+    // this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+    this.socket = new WebSocket('ws://localhost:4000/ws');
     this.socket.onopen = (event) => {
       this.receiveEvent(new EventMessage('Startup', ReviewEvent.System, { msg: 'connected' }));
     };
     this.socket.onclose = (event) => {
-      this.receiveEvent(new EventMessage('Startup', ReviewEvent.System, { msg: 'disconnected' }));
+      this.receiveEvent(new EventMessage('Upstart', ReviewEvent.System, { msg: 'disconnected' }));
     };
     this.socket.onmessage = async (msg) => {
       try {
@@ -35,6 +36,7 @@ class ReviewEventNotifier {
 
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
+    console.log("Sending an event")
     this.socket.send(JSON.stringify(event));
   }
 
@@ -43,7 +45,7 @@ class ReviewEventNotifier {
   }
 
   removeHandler(handler) {
-    this.handlers.filter((h) => h !== handler);
+    this.handlers = this.handlers.filter((h) => h !== handler);
   }
 
   receiveEvent(event) {
