@@ -1,6 +1,9 @@
 simon-html/
-
 simon-css/
+simon-react-p1/
+simon-react-p2/
+simon-service/
+simon-service-oops/
 
 node_modules/
 
@@ -8,10 +11,20 @@ testConsole/
 
 reactDemo/
 
-simon-react-p1/
-
-simon-react-p2/
-
 simon-service/
 
 simon-service-oops/
+
+testMongo/
+
+testExpress/
+
+CSS-test-files/
+
+**/.vscode
+
+**/dbConfig.json
+
+**/package-lock.json
+
+testWebSocket/
