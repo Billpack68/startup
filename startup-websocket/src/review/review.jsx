@@ -57,6 +57,17 @@ export function Review({ user }) {
 
     if (review.ok) {
       console.log('Success!');
+      const reviewData = {
+        apartment,
+        building,
+        number,
+        date: formattedDate,
+        user,
+        rating,
+        reviewText,
+      };
+      EventNotifier.broadcastEvent(user, ReviewEvent.End, reviewData);
+
     } else {
       console.error('Failed to add review:', await review.text());
     }
