@@ -122,7 +122,7 @@ export function Browse({user}) {
       <form onSubmit={findReviews}>
         <div className="form-group">
           <label htmlFor="apartmentComplex">Apartment complex</label>
-          <input type="text" onChange={apartmentChange} className="form-control" id="apartmentComplex" placeholder="Heritage Halls" />
+          <input type="text" onChange={apartmentChange} className="form-control" id="apartmentComplex" placeholder="Ex: Heritage Halls" />
         </div>
         <div className="form-group">
           <label htmlFor="buildingNumber">Building Number</label>
