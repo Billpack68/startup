@@ -55,6 +55,12 @@ export function Review({ user }) {
       body: JSON.stringify({ apartment: apartment, building: building, number: number, date: formattedDate, user: user, rating: rating, reviewText: reviewText}),
       headers: {'Content-Type': 'application/json',},
     });
+    setApartment('');
+    setBuilding('');
+    setNumber('');
+    setDate('');
+    setRating('');
+    setReviewText('');
 
     if (review.ok) {
       console.log('Success!');
@@ -85,27 +91,27 @@ export function Review({ user }) {
       <form>
         <div className="form-group">
           <label htmlFor="apartmentComplex">Apartment complex</label>
-          <input type="text" onChange={apartmentChange} className="form-control" id="apartmentComplex" placeholder="Heritage Halls" />
+          <input type="text" value={apartment} onChange={apartmentChange} className="form-control" id="apartmentComplex" placeholder="Heritage Halls" />
         </div>
         <div className="form-group">
           <label htmlFor="buildingNumber">Building Number</label>
-          <input type="number" onChange={buildingChange} className="form-control" id="buildingNumber" />
+          <input type="number" value={building} onChange={buildingChange} className="form-control" id="buildingNumber" />
         </div>
         <div className="form-group">
           <label htmlFor="unitNumber">Washer/Dryer Number</label>
-          <input type="number" onChange={numberChange} className="form-control" id="unitNumber"/>
+          <input type="number" value={number} onChange={numberChange} className="form-control" id="unitNumber"/>
         </div>
         <div className="form-group">
           <label htmlFor="date">Date</label>
-          <input type="date" onChange={dateChange} className="form-control" id="date" placeholder="mm/dd/yyyy" />
+          <input type="date" value={date} onChange={dateChange} className="form-control" id="date" placeholder="mm/dd/yyyy" />
         </div>
         <div className="form-group">
           <label htmlFor="rating">Rating (1-5)</label>
-          <input type="number" onChange={ratingChange} className="form-control" id="rating" />
+          <input type="number" value={rating} onChange={ratingChange} className="form-control" id="rating" />
         </div>
         <div className="form-group">
           <label htmlFor="reviewText">Review</label>
-          <input type="text" onChange={reviewTextChange} className="form-control" id="review" placeholder="Best dryer ever!" />
+          <input type="text" value={reviewText} onChange={reviewTextChange} className="form-control" id="review" placeholder="Best dryer ever!" />
         </div>
         <button type="submit" disabled={!isFormValid} onClick={createReview} className="btn btn-primary">Submit</button>
       </form>
