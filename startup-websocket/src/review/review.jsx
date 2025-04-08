@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReviewEvent, EventNotifier } from '../eventNotifier';
 import './review.css';
 
 export function Review({ user }) {

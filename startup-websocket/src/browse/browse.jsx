@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReviewEvent, EventNotifier } from './gameNotifier';
 import './browse.css';
 
 export function Browse({user}) {
