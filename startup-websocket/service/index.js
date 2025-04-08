@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const app = express();
 const DB = require('./database.js');
-const { peerProxy } = require('./peerProxy.js');
+const { peerProxy, broadcastToClients } = require('./peerProxy.js');
 
 
 
@@ -103,6 +103,12 @@ apiRouter.post('/addreview', verifyAuth, async (req, res) => {
         const review = new Review(apartment, building, number, date, user, rating, reviewText);
 
         await DB.addReview(review);
+
+        const reviewEvent = {
+            from: user,
+            value: review,
+        };
+        broadcastToClients(JSON.stringify(reviewEvent));
 
         res.status(201).send({ msg: 'Review added successfully' });
     } catch (err) {

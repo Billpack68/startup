@@ -29,4 +29,12 @@ function peerProxy(httpServer) {
   }, 10000);
 }
 
-module.exports = { peerProxy };
+function broadcastToClients(message) {
+  socketServer.clients.forEach(client => {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(message);
+    }
+  });
+}
+
+module.exports = { peerProxy, broadcastToClients };
